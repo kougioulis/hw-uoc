@@ -119,17 +119,6 @@
 	\exitExerciseHeader{exerciseCounter}
 }
 
-\newenvironment{Exercise}[1][-1]{
-	\ifnum#1>0
-	\setcounter{exerciseCounter}{#1}
-	\fi
-	\section{Exercise \arabic{exerciseCounter}}
-	\setcounter{partCounter}{1}
-	\enterProblemHeader{exerciseCounter}
-}{
-	\exitProblemHeader{exerciseCounter}
-}
-
 % Title Page %
 \title{
 	\centering
