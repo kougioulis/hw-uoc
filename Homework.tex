@@ -97,6 +97,28 @@
 % assignment aren't sequential. See the last 3 problems of this template for an example.
 %
 
+\newcommand{\enterExerciseHeader}[1]{
+	\nobreak\extramarks{}{Exercise \arabic{#1} continued on next page\ldots}\nobreak{}
+	\nobreak\extramarks{Exercise \arabic{#1} (continued)}{Exercise \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitExerciseHeader}[1]{
+	\nobreak\extramarks{Exercise \arabic{#1} (continued)}{Exercise \arabic{#1} continued on next page\ldots}\nobreak{}
+	\stepcounter{#1}
+	\nobreak\extramarks{Exercise \arabic{#1}}{}\nobreak{}
+}
+
+\newenvironment{Exercise}[1][-1]{
+	\ifnum#1>0
+	\setcounter{exerciseCounter}{#1}
+	\fi
+	\section{Exercise \arabic{exerciseCounter}}
+	\setcounter{partCounter}{1}
+	\enterExerciseHeader{exerciseCounter}
+}{
+	\exitExerciseHeader{exerciseCounter}
+}
+
 \newenvironment{Exercise}[1][-1]{
 	\ifnum#1>0
 	\setcounter{exerciseCounter}{#1}
